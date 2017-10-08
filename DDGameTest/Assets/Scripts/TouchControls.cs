@@ -8,6 +8,9 @@ public class TouchControls : MonoBehaviour {
     private LevelLoader levelExit;
 
     private PauseMenu thePauseMenu;
+
+	private PlayerMovement playerMovement;
+
 	// Use this for initialization
 	void Start () {
         thePlayer = FindObjectOfType<PlayerController>();
@@ -15,21 +18,23 @@ public class TouchControls : MonoBehaviour {
         levelExit = FindObjectOfType<LevelLoader>();
 
         thePauseMenu = FindObjectOfType<PauseMenu>();
+
+		playerMovement = FindObjectOfType<PlayerMovement> ();
 	}
 	
 	public void LeftArrow()
     {
-        thePlayer.Move(-1);
+		playerMovement.Move(-1);
     }
 
     public void RightArrow()
     {
-        thePlayer.Move(1);
+		playerMovement.Move(1);
     }
 
     public void UnpressedArrow()
     {
-        thePlayer.Move(0);
+		playerMovement.Move(0);
     }
 
     public void Sword()
@@ -49,7 +54,7 @@ public class TouchControls : MonoBehaviour {
 
     public void Jump()
     {
-        thePlayer.Jump();
+		FindObjectOfType<PlayerMovement>().Jump();
 
         if (levelExit.playerInZone)
         {

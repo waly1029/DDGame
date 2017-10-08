@@ -3,16 +3,16 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-    public float moveSpeed;
-    private float moveVelocity;
-    public float jumpHeight;
+    //public float moveSpeed;
+    //private float moveVelocity;
+    //public float jumpHeight;
 
-    public Transform groundCheck;
-    public float groundCheckRadius;
-    public LayerMask whatIsGround;
-    private bool grounded;
+    //public Transform groundCheck;
+    //public float groundCheckRadius;
+    //public LayerMask whatIsGround;
+    //private bool grounded;
 
-    public bool canDoubleJump;
+    //public bool canDoubleJump;
 
     private Animator anim;
     Rigidbody2D myRigidbody2D;
@@ -23,18 +23,16 @@ public class PlayerController : MonoBehaviour {
     public float shotDelay;
     private float shotCounter;
 
-    public float knockBack;
-    public float knockBackLength;
-    public float knockBackCounter;
-    public bool knockFromRight;
-
-    public bool onLadder;
-
     /*when player on ladder*/
     public float climbSpeed;
     public float climbVelocity;
     public float gravityStore;
     /*---------------------*/
+	private PlayerKnockEnemy playerKnockEnemy;
+
+	private PlayerCheckGround playerCheckGround;
+
+	private PlayerMovement playerMovement;
 
 	// Use this for initialization
 	void Start () {
@@ -44,63 +42,45 @@ public class PlayerController : MonoBehaviour {
         anim = GetComponent<Animator>();
 
         gravityStore = myRigidbody2D.gravityScale;
+
+		playerKnockEnemy = FindObjectOfType<PlayerKnockEnemy> ();
+
+		playerCheckGround = FindObjectOfType<PlayerCheckGround> ();
+
+		playerMovement = FindObjectOfType<PlayerMovement> ();
+
 	}
 
-    void FixedUpdate()
-    {
-        grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-
-    }
 	// Update is called once per frame
 	void Update () {
 
-        Debug.DrawLine(groundCheck.position, new Vector2(groundCheck.position.x, groundCheck.position.y - groundCheckRadius), Color.red);
+		if ( playerCheckGround.grounded ) {
+			
+            playerMovement.canDoubleJump = true;
 
-        if(grounded){
-            canDoubleJump = true;
         }
 
-        anim.SetBool("Grounded", grounded);
+		anim.SetBool("Grounded", playerCheckGround.grounded);
 
 #if UNITY_STANDALONE || UNITY_WEBPLAYER
 
-        if (Input.GetButtonDown("Jump") && grounded)
-        {
-            //myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, jumpHeight);
-            Jump();
-        }
+		playerMovement.Jump( );
 
-        if (Input.GetButtonDown("Jump") && !grounded && canDoubleJump)
-        {
-            //myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, jumpHeight);
-            Jump();
-            canDoubleJump = false;
-        }
+	    playerMovement.DoubleJump( );
 
-        //moveVelocity = 0f;//if no buttons is pressed,keep moveVelocity Zero;
-
-        //moveVelocity = Input.GetAxisRaw("Horizontal") * moveSpeed;
-        Move(Input.GetAxisRaw("Horizontal"));
+		playerMovement.Move( Input.GetAxisRaw( "Horizontal" ) );
 
 #endif
 
-        if (knockBackCounter <= 0)
-        {
-            //movement
-            myRigidbody2D.velocity = new Vector2(moveVelocity, myRigidbody2D.velocity.y);
-        }
-        else
-        {
-            if (knockFromRight)//如果敌人在右边则向左位移(-knockBack, knockBack)
-            {
-                myRigidbody2D.velocity = new Vector2(-knockBack, knockBack);
-            }
-            if (!knockFromRight)//如果敌人在左边则向右位移(-knockBack, knockBack)
-            {
-                myRigidbody2D.velocity = new Vector2(knockBack, knockBack);
-            }
-            knockBackCounter -= Time.deltaTime;
-        }
+		if ( playerKnockEnemy.knockBackCounter <= 0 ) {
+			
+			myRigidbody2D.velocity = new Vector2 ( playerMovement.moveVelocity, myRigidbody2D.velocity.y );
+
+		} else {
+			
+			playerKnockEnemy.PlayerJumpOnEnemy ( );
+
+		}
 
         anim.SetFloat("Speed", Mathf.Abs(myRigidbody2D.velocity.x));
 
@@ -115,44 +95,46 @@ public class PlayerController : MonoBehaviour {
 
 #if UNITY_STANDALONE || UNITY_WEBPLAYER
 
-        if (Input.GetButtonDown("Fire2"))
-        {
+        if ( Input.GetButtonDown( "Fire2" ) ) {
             //Instantiate(ninjaStar, firePoint.position, firePoint.rotation);
-            FireStar();
+            FireStar( );
+
             shotCounter = shotDelay;
+
         }
 
-        if (Input.GetButton("Fire2"))
-        {
+        if ( Input.GetButton( "Fire2" ) ) {
+			
             shotCounter -= Time.deltaTime;
 
-            if (shotCounter <= 0)
-            {
+            if ( shotCounter <= 0 ) {
+				
                 shotCounter = shotDelay;
+
                 //Instantiate(ninjaStar, firePoint.position, firePoint.rotation);
                 FireStar();
+
             }
         }
 
-        if(anim.GetBool("Sword")){
+        if ( anim.GetBool( "Sword" ) ) {
             //anim.SetBool("Sword", false);
-            RestSword();
+            RestSword( );
         }
 
-        if (Input.GetButtonDown("Fire1"))
-        {
+        if ( Input.GetButtonDown( "Fire1" ) ) {
             //anim.SetBool("Sword", true);
-            Sword();
+            Sword( );
         }
 
 #endif
 
     }
 
-    public void Move(float moveInput)
+    /*public void Move(float moveInput)
     {
         moveVelocity = moveInput * moveSpeed;
-    }
+    }*/
 
     public void FireStar()
     {
@@ -169,22 +151,22 @@ public class PlayerController : MonoBehaviour {
         anim.SetBool("Sword", false);
     }
 
-    public void Jump()
+    /*public void Jump()
     {
-        if (grounded)
+		if (playerCheckGround.grounded)
         {
             myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, jumpHeight);
         }
 
-        if (!grounded && canDoubleJump)
+		if (!playerCheckGround.grounded && canDoubleJump)
         {
             myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, jumpHeight);
             canDoubleJump = false;
         }
 
-    }
+    }*/
 
-    void OnCollisionEnter2D(Collision2D other)
+    /*void OnCollisionEnter2D(Collision2D other)
     {
         if (other.transform.tag == "MovingPlatform")
         {
@@ -198,5 +180,5 @@ public class PlayerController : MonoBehaviour {
         {
             transform.parent = null;
         }
-    }
+    }*/
 }

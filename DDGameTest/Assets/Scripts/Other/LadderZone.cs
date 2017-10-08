@@ -24,7 +24,9 @@ public class LadderZone : MonoBehaviour {
          if (onLadder)
         {
             playerCor.climbVelocity = playerCor.climbSpeed * Input.GetAxisRaw("Vertical");
-            playerCor.GetComponent<Rigidbody2D>().gravityScale = 0f;
+
+            playerRigidbody.gravityScale = 0f;
+
             playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, playerCor.climbVelocity);
             //Debug.Log("on ladder" + gravityStore);
         }

@@ -65,14 +65,14 @@ public class LevelManager : MonoBehaviour {
         player.transform.FindChild("Player_Sword").GetComponent<BoxCollider2D>().enabled = true;
         player.transform.FindChild("Player_Sword").GetComponent<Renderer>().enabled = true;
         //player.GetComponent<Rigidbody2D>().gravityScale = player.gravityStore;
-        player.onLadder = false;
+        //player.onLadder = false;
         healthManager.FullHealth();
         healthManager.isDead = false;
         camera.isFollowing = true;
         player.enabled = true;
         player.GetComponent<Renderer>().enabled = true;
         player.transform.position = currentCheckPoint.transform.position;
-        player.knockBackCounter = 0;
+		FindObjectOfType<PlayerKnockEnemy>().knockBackCounter = 0;
         Instantiate(respawnParticle, currentCheckPoint.transform.position, currentCheckPoint.transform.rotation);
     }
 }

@@ -4,34 +4,28 @@ using System.Collections;
 public class HurtPlayerOnContact : MonoBehaviour {
 
     public int damageToGive;
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	    
-	}
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D( Collider2D other )
     {
-        if (other.name == "Player")
+        if ( other.name == "Player" )
         {
             HealthManager.HurtPlayer(damageToGive);
             other.GetComponent<AudioSource>().Play();
 
             //var弱化类型的定义，可代替任何类型
-            var player = other.GetComponent<PlayerController>();
-            player.knockBackCounter = player.knockBackLength;
+            var playerKnockEnemy = other.GetComponent<PlayerKnockEnemy>();
 
-            if (other.transform.position.x < transform.position.x)
+			playerKnockEnemy.knockBackCounter = playerKnockEnemy.knockBackLength;
+
+            if ( other.transform.position.x < transform.position.x )
             {
-                player.knockFromRight = true;
-            }
-            else
-            {
-                player.knockFromRight = false;
+				
+				playerKnockEnemy.knockFromRight = true;
+
+            } else {
+				
+				playerKnockEnemy.knockFromRight = false;
+
             }
             
         }
