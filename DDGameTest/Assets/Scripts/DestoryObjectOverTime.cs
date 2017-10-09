@@ -3,19 +3,19 @@ using System.Collections;
 
 public class DestoryObjectOverTime : MonoBehaviour {
 
-    public float lifeTime;
+    [SerializeField]
+    private float lifeTime;
 	// Use this for initialization
-	void Start () {
-	
-	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ( ) {
+
         lifeTime -= Time.deltaTime;
 
-        if (lifeTime < 0)
-        {
-            Destroy(gameObject);
+        if ( lifeTime < 0 ) {
+
+            Destroy( gameObject );
+
         }
 	}
 }

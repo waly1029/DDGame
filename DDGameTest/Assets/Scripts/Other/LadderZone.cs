@@ -3,56 +3,68 @@ using System.Collections;
 
 public class LadderZone : MonoBehaviour {
 
-    private PlayerController playerCor;
+    [SerializeField]
+    private float gravityStore;
 
+    [SerializeField]
+    private float climbVelocity;
+
+    [SerializeField]
+    private float climbSpeed;
+    
     private Rigidbody2D playerRigidbody;
 
+    [SerializeField]
     private bool onLadder;
 
 	// Use this for initialization
-	void Start () {
+	void Start ( ) {
 
-        playerCor = FindObjectOfType<PlayerController>();
+        gravityStore = FindObjectOfType<PlayerController>().GetComponent<Rigidbody2D>().gravityScale;
 
-        playerRigidbody = playerCor.GetComponent<Rigidbody2D>();
+        playerRigidbody = FindObjectOfType<PlayerController>().GetComponent<Rigidbody2D>();
 
-	}
+        climbSpeed = 5f;
+
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ( ) {
 	    
-         if (onLadder)
-        {
-            playerCor.climbVelocity = playerCor.climbSpeed * Input.GetAxisRaw("Vertical");
+         if ( onLadder ) {
+           
+            climbVelocity = climbSpeed * Input.GetAxisRaw( "Vertical" );
 
             playerRigidbody.gravityScale = 0f;
 
-            playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, playerCor.climbVelocity);
-            //Debug.Log("on ladder" + gravityStore);
+            playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, climbVelocity);
+
         }
-        if (!onLadder)
-        {
-            playerRigidbody.gravityScale = playerCor.gravityStore;
-            //Debug.Log("not on ladder" + gravityStore);
+
+        if ( !onLadder ) {
+
+            playerRigidbody.gravityScale = gravityStore;
 
         }
 
 	}
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.name == "Player")
-        {
+    void OnTriggerEnter2D( Collider2D other ) {
+
+        if ( other.name == "Player" ) {
+
             onLadder = true;
+
         }
         
     }
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.name == "Player")
-        {
+    void OnTriggerExit2D( Collider2D other ) {
+
+        if ( other.name == "Player" ) {
+
             onLadder = false;
+
         }
 
     }

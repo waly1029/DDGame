@@ -49,8 +49,8 @@ public class LevelManager : MonoBehaviour {
         Instantiate(deathParticle, player.transform.position, player.transform.rotation);
         player.enabled = false;
         player.GetComponent<CircleCollider2D>().enabled = false;
-        player.transform.FindChild("Player_Sword").GetComponent<BoxCollider2D>().enabled = false;
-        player.transform.FindChild("Player_Sword").GetComponent<Renderer>().enabled = false;
+        player.transform.Find("Player_Sword").GetComponent<BoxCollider2D>().enabled = false;
+        player.transform.Find("Player_Sword").GetComponent<Renderer>().enabled = false;
         camera.isFollowing = false;
         player.GetComponent<Renderer>().enabled = false;
         ScoreManager.AddPionts(-pointPenaltyOnDeath);
@@ -62,8 +62,8 @@ public class LevelManager : MonoBehaviour {
         yield return new WaitForSeconds(respawnDelay);
 
         player.GetComponent<CircleCollider2D>().enabled = true;
-        player.transform.FindChild("Player_Sword").GetComponent<BoxCollider2D>().enabled = true;
-        player.transform.FindChild("Player_Sword").GetComponent<Renderer>().enabled = true;
+        player.transform.Find("Player_Sword").GetComponent<BoxCollider2D>().enabled = true;
+        player.transform.Find("Player_Sword").GetComponent<Renderer>().enabled = true;
         //player.GetComponent<Rigidbody2D>().gravityScale = player.gravityStore;
         //player.onLadder = false;
         healthManager.FullHealth();

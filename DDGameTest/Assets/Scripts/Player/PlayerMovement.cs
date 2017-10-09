@@ -16,16 +16,13 @@ public class PlayerMovement : MonoBehaviour {
 	[SerializeField]
 	private float moveSpeed;
 
-	[SerializeField]
 	private Rigidbody2D playerRigidbody;
 
-	[SerializeField]
 	private PlayerCheckGround playerCheckGround;
 
-	[SerializeField]
 	private PlayerMovement playerMovement;
 	// Use this for initialization
-	void Start () {
+	void Start ( ) {
 
 		playerRigidbody = GetComponent<Rigidbody2D> ();
 
@@ -38,36 +35,47 @@ public class PlayerMovement : MonoBehaviour {
 		jumpHeight = 15f;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	public void Move( float moveInput ) {
 		
 		moveVelocity = moveInput * moveSpeed;
-
-		Debug.Log (moveVelocity);
+        
 
 	}
 
 	public void Jump( ) {
-			
-		if ( Input.GetButtonDown ("Jump") && playerCheckGround.grounded ) {
+
+        if ( Input.GetButtonDown ( "Jump" ) && playerCheckGround.grounded ) {
 			
 			playerRigidbody.velocity = new Vector2 (playerRigidbody.velocity.x, jumpHeight);
 
 		}
 
-	}
+        if ( Input.GetButtonDown( "Jump" ) && !playerCheckGround.grounded && playerMovement.canDoubleJump ) {
 
-	public void DoubleJump( ) {
+            playerRigidbody.velocity = new Vector2( playerRigidbody.velocity.x, jumpHeight );
+
+            canDoubleJump = false;
+
+        }
+    }
+
+    public void CheckDoubleJump( ) {
+
+        if ( playerCheckGround.grounded ) {
+
+            canDoubleJump = true;
+
+        }
+    }
+
+    /*public void DoubleJump( ) {
 
 		if ( Input.GetButtonDown ("Jump") && !playerCheckGround.grounded && playerMovement.canDoubleJump ) {
 			
 			playerRigidbody.velocity = new Vector2 (playerRigidbody.velocity.x, jumpHeight);
 
 			canDoubleJump = false;
+
 		}
-	}
+	}*/
 }

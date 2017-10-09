@@ -15,14 +15,17 @@ public class PlayerKnockEnemy : MonoBehaviour {
 
 	[SerializeField]
 	private float knockBack;
-
-	[SerializeField]
+    
 	private Rigidbody2D playerRigidbody;
+
+    private PlayerMovement playerMovement;
 
 	// Use this for initialization
 	void Start ( ) {
 
-		playerRigidbody = FindObjectOfType<PlayerController> ().GetComponent<Rigidbody2D> ();
+		playerRigidbody = FindObjectOfType<PlayerController> ( ).GetComponent<Rigidbody2D> ( );
+
+        playerMovement = FindObjectOfType<PlayerMovement>( );
 
 		knockBackLength = 0.2f;
 
@@ -31,22 +34,28 @@ public class PlayerKnockEnemy : MonoBehaviour {
 	}
 
 	public void PlayerJumpOnEnemy( ) {
-		
-		if ( knockFromRight )//if player jumps on enemy from left如果敌人在右边则向左位移(-knockBack, knockBack)
-		{
-			
-			playerRigidbody.velocity = new Vector2( -knockBack, knockBack );
 
-		}
+        if ( knockBackCounter <= 0 ) {
 
-		if ( !knockFromRight )//if player jumps on enemy from right如果敌人在左边则向右位移(-knockBack, knockBack)
-		{
-			
-			playerRigidbody.velocity = new Vector2( knockBack, knockBack );
+            playerRigidbody.velocity = new Vector2( playerMovement.moveVelocity, playerRigidbody.velocity.y );
 
-		}
+        }  else {
 
-		knockBackCounter -= Time.deltaTime;
+            if ( knockFromRight ) {//if player jumps on enemy from left如果敌人在右边则向左位移(-knockBack, knockBack)
+
+
+                playerRigidbody.velocity = new Vector2( -knockBack, knockBack );
+
+            }
+
+            if ( !knockFromRight ) {//if player jumps on enemy from right如果敌人在左边则向右位移(-knockBack, knockBack)
+
+                playerRigidbody.velocity = new Vector2( knockBack, knockBack );
+
+            }
+
+            knockBackCounter -= Time.deltaTime;
+        }
 
 	}
 }
