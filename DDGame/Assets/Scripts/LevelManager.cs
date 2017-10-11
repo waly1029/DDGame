@@ -13,8 +13,6 @@ public class LevelManager : MonoBehaviour {
 
     public int pointPenaltyOnDeath;
 
-    //private float gravityStore;
-
     public float respawnDelay;
 
     public new CameraController camera;

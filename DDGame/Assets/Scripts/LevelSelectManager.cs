@@ -4,9 +4,14 @@ using System.Collections;
 
 public class LevelSelectManager : MonoBehaviour {
 
-    public string[] levelTags;
+    public const int MAX_LEVEL_LOCKS = 8;
 
-    public GameObject[] locks;
+    [SerializeField]
+    private GameObject[] locks;
+    
+    private string locksNum = "";
+
+    public string[] levelTags;
 
     public bool[] levelUnlocked;
 
@@ -22,9 +27,14 @@ public class LevelSelectManager : MonoBehaviour {
     
     public bool touchMode;
 
-	// Use this for initialization
-	void Start () {
-       
+    
+    // Use this for initialization
+    void Start () {
+
+        locks = new GameObject[ MAX_LEVEL_LOCKS ];
+
+        FindLevelLocks( );
+
         for (int i = 0; i < levelTags.Length; i++)
         {
             if (PlayerPrefs.GetInt(levelTags[i]) == null)
@@ -103,4 +113,17 @@ public class LevelSelectManager : MonoBehaviour {
             }
         }
 	}
+
+     private void FindLevelLocks( ) {
+
+        for( int i = 0; i < MAX_LEVEL_LOCKS; i++ ) {
+            
+            locksNum = "Level_Select_Lock_0" + ( i + 1 );
+
+            locks[ i ] = GameObject.Find( locksNum );
+
+            Debug.Log(locksNum);
+
+        }
+    }
 }

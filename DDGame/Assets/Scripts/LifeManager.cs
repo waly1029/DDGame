@@ -19,7 +19,7 @@ public class LifeManager : MonoBehaviour {
 
     public float waitAfterGameOver;
 	// Use this for initialization
-	void Start () {
+	void Start ( ) {
         theText = GetComponent<Text>();
 
         lifeCounter = PlayerPrefs.GetInt("PlayerCurrentLives");

@@ -86,7 +86,7 @@
     <Compile Include="Assets\Scripts\BossHealthManager.cs" />
     <Compile Include="Assets\Scripts\BossPatrol.cs" />
     <Compile Include="Assets\Scripts\BossWall.cs" />
-    <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
     <Compile Include="Assets\Scripts\CheckPoint.cs" />
     <Compile Include="Assets\Scripts\CoinPickUp.cs" />
     <Compile Include="Assets\Scripts\Damage\HurtEnemyOnContact.cs" />
@@ -110,7 +110,6 @@
     <Compile Include="Assets\Scripts\LevelSelectTouch.cs" />
     <Compile Include="Assets\Scripts\LifeManager.cs" />
     <Compile Include="Assets\Scripts\LifePickUp.cs" />
-    <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\MovingPlatform.cs" />
     <Compile Include="Assets\Scripts\NinjaStarController.cs" />
     <Compile Include="Assets\Scripts\Others\CoinBlock.cs" />
@@ -128,6 +127,7 @@
     <Compile Include="Assets\Scripts\ShotAtPlayerInRange.cs" />
     <Compile Include="Assets\Scripts\TimeManager.cs" />
     <Compile Include="Assets\Scripts\TouchControls.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\ImportBehaviour.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\SortingLayerExposed.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\SpriteDepthInMap.cs" />

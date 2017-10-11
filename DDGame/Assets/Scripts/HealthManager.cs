@@ -75,7 +75,7 @@ public class HealthManager : MonoBehaviour {
     }
 
     public void FullHealth( ) {
-        //playerHealth = maxPlayerHealth;
+
         playerHealth = PlayerPrefs.GetInt( "PlayerMaxHealth" );
 
         PlayerPrefs.SetInt( "PlayerCurrentHealth", playerHealth );
