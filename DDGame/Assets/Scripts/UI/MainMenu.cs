@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
+	private const int MAX_LEVEL = 8;
+
     [SerializeField]
     private string startLevel;
 
@@ -17,54 +19,37 @@ public class MainMenu : MonoBehaviour {
     private int playerHealth;
 
     [SerializeField]
-    private string level1Tag;
+    private string levelTag;
     
     [SerializeField]
     private GameObject gameButtonPanel;
 
     void Start( ) {
 
-        gameButtonPanel = transform.FindChild("OnGameButtonPanel").gameObject;
+        gameButtonPanel = transform.FindChild( "OnGameButtonPanel" ).gameObject;
 
     }
 
     public void NewGame( ) {
 
-        PlayerPrefs.SetInt( "PlayerCurrentLives", playerLives );
-
-        PlayerPrefs.SetInt( "CurrentPlayerScores", 0 );
-
-        PlayerPrefs.SetInt( "PlayerCurrentHealth", playerHealth );
-
-        PlayerPrefs.SetInt( "PlayerMaxHealth", playerHealth );
-
-        PlayerPrefs.SetInt( level1Tag, 1 );
+		SetStartInfo( );
 
         PlayerPrefs.SetInt( "PlayerLevelSelectPosition", 0 );
 
-        //Application.LoadLevel(startLevel);
         SceneManager.LoadScene( startLevel );
 
     }
 
     public void LevelSelect( ) {
 
-        PlayerPrefs.SetInt( "PlayerCurrentLives", playerLives );
+		SetStartInfo( );
 
-        PlayerPrefs.SetInt( "CurrentPlayerScores", 0 );
-
-        PlayerPrefs.SetInt( "PlayerCurrentHealth", playerHealth );
-
-        PlayerPrefs.SetInt( "PlayerMaxHealth", playerHealth );
-
-        PlayerPrefs.SetInt( level1Tag, 1 );
-
-        if (!PlayerPrefs.HasKey( "PlayerLevelSelectPosition" ) ) {
+        if ( !PlayerPrefs.HasKey( "PlayerLevelSelectPosition" ) ) {
 
             PlayerPrefs.SetInt( "PlayerLevelSelectPosition", 0 );
 
         }
-        //Application.LoadLevel(levelSelect);
+
         SceneManager.LoadScene( levelSelect );
 
     }
@@ -83,26 +68,26 @@ public class MainMenu : MonoBehaviour {
 
     public void QuitGame( ) {
 
-        PlayerPrefs.DeleteKey( "Level_1_Lock"　);
+		PlayerPrefs.DeleteAll( );
 
-        PlayerPrefs.DeleteKey( "Level_2_Lock"　);
+        Debug.Log( "Game Exited" );
 
-        PlayerPrefs.DeleteKey( "Level_3_Lock"　);
-
-        PlayerPrefs.DeleteKey( "Level_4_Lock"　);
-
-        PlayerPrefs.DeleteKey( "Level_5_Lock"　);
-
-        PlayerPrefs.DeleteKey( "Level_6_Lock"　);
-
-        PlayerPrefs.DeleteKey( "Level_7_Lock"　);
-
-        PlayerPrefs.DeleteKey( "Level_8_Lock"　);
-
-        Debug.Log(　"Game Exited"　);
-
-        Application.Quit(　);
+        Application.Quit( );
 
     }
+
+	public void SetStartInfo( ) {
+
+		PlayerPrefs.SetInt( "PlayerCurrentLives", playerLives );
+
+		PlayerPrefs.SetInt( "CurrentPlayerScores", 0 );
+
+		PlayerPrefs.SetInt( "PlayerCurrentHealth", playerHealth );
+
+		PlayerPrefs.SetInt( "PlayerMaxHealth", playerHealth );
+
+		PlayerPrefs.SetInt( levelTag, 1 );
+
+	}
 
 }

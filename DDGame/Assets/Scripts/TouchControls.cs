@@ -3,8 +3,6 @@ using System.Collections;
 
 public class TouchControls : MonoBehaviour {
 
-    private PlayerController thePlayer;
-
     private LevelLoader levelExit;
 
     private PauseMenu thePauseMenu;
@@ -18,8 +16,6 @@ public class TouchControls : MonoBehaviour {
 	// Use this for initialization
 	void Start ( ) {
 
-        thePlayer = FindObjectOfType<PlayerController> ( );
-
         levelExit = FindObjectOfType<LevelLoader> ( );
 
         thePauseMenu = FindObjectOfType<PauseMenu> ( );
@@ -31,48 +27,58 @@ public class TouchControls : MonoBehaviour {
         playerAttack = FindObjectOfType<PlayerAttack> ( );
 	}
 	
-	public void LeftArrow()
-    {
-		playerMovement.Move(-1);
+	public void LeftArrow( ) {
+		
+		playerMovement.Move( -1 );
+
     }
 
-    public void RightArrow()
-    {
-		playerMovement.Move(1);
+    public void RightArrow( ) {
+		
+		playerMovement.Move( 1 );
+
     }
 
-    public void UnpressedArrow()
-    {
-		playerMovement.Move(0);
+    public void UnpressedArrow( ) {
+		
+		playerMovement.Move( 0 );
+
     }
 
-    public void Sword()
-    {
-        playerAnim.Sword();
+    public void Sword( ) {
+		
+        playerAnim.Sword( );
+
     }
 
-    public void RestSword()
-    {
-        playerAnim.RestSword();
+    public void RestSword( ) {
+		
+        playerAnim.RestSword( );
+
     }
 
-    public void Star()
-    {
-        playerAttack.FireStar();
+    public void Star( ) {
+		
+        playerAttack.FireStar( );
+
     }
 
-    public void Jump()
-    {
-		FindObjectOfType<PlayerMovement>().Jump();
+    public void Jump( ) {
+		
+		FindObjectOfType<PlayerMovement>( ).Jump( );
 
-        if (levelExit.playerInZone)
-        {
-            levelExit.LoadLevel();
+        if ( levelExit.playerInZone ) {
+			
+            levelExit.LoadLevel( );
+
         }
+
     }
 
-    public void Pause()
-    {
-        thePauseMenu.PauseUnpause();
+    public void Pause( ) {
+		
+        thePauseMenu.PauseUnpause( );
+
     }
+
 }

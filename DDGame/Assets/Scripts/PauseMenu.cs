@@ -3,52 +3,69 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour {
 
-    public string levelSelect;
+	[SerializeField]
+    private string levelSelect;
 
-    public string mainMenu;
+	[SerializeField]
+    private string mainMenu;
 
-    public bool isPaused;
+	public bool isPaused;
 
-    public GameObject pauseMenuCanvas;
+	[SerializeField]
+    private GameObject pauseMenuCanvas;
 
-    void Update()
-    {
-        if (isPaused)
-        {
-            pauseMenuCanvas.SetActive(true);
+	void Start( ) {
+
+		pauseMenuCanvas = transform.FindChild ( "Canvas" ).gameObject;
+
+	}
+
+    void Update( ) {
+		
+        if ( isPaused ) {
+			
+            pauseMenuCanvas.SetActive( true );
+
             Time.timeScale = 0f;
-        }
-        else
-        {
-            pauseMenuCanvas.SetActive(false);
+
+        } else {
+			
+            pauseMenuCanvas.SetActive( false );
+
             Time.timeScale = 1f;
+
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            //isPaused = !isPaused;
-            PauseUnpause();
+        if ( Input.GetKeyDown( KeyCode.Escape ) ) {
+			
+            PauseUnpause( );
+
         }
+
     }
 
-    public void PauseUnpause()
-    {
+    public void PauseUnpause( ) {
+		
         isPaused = !isPaused;
+
     }
-    public void Resume()
-    {
+
+    public void Resume( ) {
+		
         isPaused = false;
+
     }
 
-    public void LevelSelect()
-    {
-        //Application.LoadLevel(levelSelect);
-        SceneManager.LoadScene(levelSelect);
+    public void LevelSelect( ) {
+		
+        SceneManager.LoadScene( levelSelect );
+
     }
 
-    public void Quit()
-    {
-        //Application.LoadLevel(mainMenu);
-        SceneManager.LoadScene(mainMenu);
+    public void Quit( ) {
+		
+        SceneManager.LoadScene( mainMenu );
+
     }
+
 }

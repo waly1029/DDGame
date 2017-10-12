@@ -53,7 +53,7 @@ public class PlayerAnimation : MonoBehaviour {
     }
 
     public void Sword( ) {
-		Debug.Log ("1");
+		
         anim.SetBool( "Sword", true );
 
     }

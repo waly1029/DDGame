@@ -6,48 +6,61 @@ public class LevelLoader : MonoBehaviour {
     
     public bool playerInZone;
 
-    public string levelToLoad;
+	[SerializeField]
+    private string levelToLoad;
 
-    public int pointsToExit;
+	[SerializeField]
+    private int pointsToExit;
 
-    public string levelTag;
+	[SerializeField]
+    private string nextLevelTag;
     
 	// Use this for initialization
-	void Start () {
+	void Start ( ) {
+		
         playerInZone = false; 
+
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ( ) {
 
-        if (Input.GetAxisRaw("Vertical") > 0 && playerInZone && ScoreManager.score >= pointsToExit)
-        {
-            LoadLevel();
-            //Application.LoadLevel(levelToLoad);
-            //SceneManager.LoadScene(levelToLoad);
+        if ( Input.GetAxisRaw( "Vertical" ) > 0 && playerInZone && ScoreManager.score >= pointsToExit ) {
+			
+            LoadLevel( );
+
         }
+
 	}
 
-    public void LoadLevel()
-    {
-        PlayerPrefs.SetInt(levelTag, 1);
-        //Application.LoadLevel(levelToLoad);
-        SceneManager.LoadScene(levelToLoad);
+    public void LoadLevel( ) {
+		
+		PlayerPrefs.SetInt( nextLevelTag, 1 ); 
+
+        SceneManager.LoadScene( levelToLoad );
+
+		Debug.Log ( PlayerPrefs.GetInt(nextLevelTag));
+
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.name == "Player")
-        {
+    void OnTriggerEnter2D( Collider2D other ) {
+		
+        if ( other.name == "Player" ) {
+			
             playerInZone = true;
+
         }
+
     }
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.name == "Player")
-        {
+	void OnTriggerExit2D( Collider2D other ) {
+		
+        if ( other.name == "Player" ) {
+			
             playerInZone = false;
+
         }
+
     }
+
 }

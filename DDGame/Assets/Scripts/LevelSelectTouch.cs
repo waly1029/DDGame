@@ -5,41 +5,55 @@ using UnityEngine;
 
 public class LevelSelectTouch : MonoBehaviour {
 
-    public LevelSelectManager theLevelSelectManager;
-	// Use this for initialization
-	void Start () {
-        theLevelSelectManager = FindObjectOfType<LevelSelectManager>();
+	private LevelSelectMovement levelSelMov;
 
-        theLevelSelectManager.touchMode = true;
+	private LevelSelectInformation levelSelInfo;
+
+	// Use this for initialization
+	void Start ( ) {
+
+		levelSelInfo = FindObjectOfType<LevelSelectInformation> ( );
+
+		levelSelMov = FindObjectOfType<LevelSelectMovement> ( );
+
+		levelSelMov.touchMode = true;
+
 	}
 	
-	public void MoveLeft()
-    {
-        theLevelSelectManager.positionSelector -= 1;
+	public void MoveLeft( ) {
+		
+		levelSelMov.positionSelector -= 1;
 
-        if(theLevelSelectManager.positionSelector < 0)
-        {
-            theLevelSelectManager.positionSelector = 0;
+		if( levelSelMov.positionSelector < 0 ) {
+			
+			levelSelMov.positionSelector = 0;
+
         }
+
     }
 
-    public void MoveRight()
-    {
-        theLevelSelectManager.positionSelector += 1;
+    public void MoveRight( ) {
+		
+		levelSelMov.positionSelector += 1;
 
-        if (theLevelSelectManager.positionSelector >= theLevelSelectManager.levelTags.Length)
-        {
-            theLevelSelectManager.positionSelector = theLevelSelectManager.levelTags.Length - 1;
+		if ( levelSelMov.positionSelector >= levelSelInfo.levelTags.Length ) {
+			
+			levelSelMov.positionSelector = levelSelInfo.levelTags.Length - 1;
+
         }
+
     }
 
-    public void LoadLevel()
-    {
-        if (theLevelSelectManager.levelUnlocked[theLevelSelectManager.positionSelector])
-        {
-            PlayerPrefs.SetInt("PlayerLevelSelectPosition", theLevelSelectManager.positionSelector);
-            //Application.LoadLevel(theLevelSelectManager.levelName[theLevelSelectManager.positionSelector]);
-            SceneManager.LoadScene(theLevelSelectManager.levelName[theLevelSelectManager.positionSelector]);
+    public void LoadLevel( ) {
+		
+		if ( levelSelInfo.levelUnlocked[ levelSelMov.positionSelector ] ) {
+			
+			PlayerPrefs.SetInt( "PlayerLevelSelectPosition", levelSelMov.positionSelector );
+
+			SceneManager.LoadScene( levelSelInfo.levelName[ levelSelMov.positionSelector ] );
+
         }
+
     }
+
 }
