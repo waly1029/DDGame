@@ -3,7 +3,7 @@ using System.Collections;
 
 public class TouchControls : MonoBehaviour {
 
-    private LevelLoader levelExit;
+    private LevelLoader levelLoader;
 
     private PauseMenu thePauseMenu;
 
@@ -13,10 +13,12 @@ public class TouchControls : MonoBehaviour {
 
     private PlayerAttack playerAttack;
 
+    private LevelManager levelManager;
+
 	// Use this for initialization
 	void Start ( ) {
 
-        levelExit = FindObjectOfType<LevelLoader> ( );
+        levelLoader = FindObjectOfType<LevelLoader> ( );
 
         thePauseMenu = FindObjectOfType<PauseMenu> ( );
 
@@ -25,6 +27,9 @@ public class TouchControls : MonoBehaviour {
         playerAnim = FindObjectOfType<PlayerAnimation> ( );
 
         playerAttack = FindObjectOfType<PlayerAttack> ( );
+
+        levelManager = FindObjectOfType<LevelManager> ( ); 
+
 	}
 	
 	public void LeftArrow( ) {
@@ -67,9 +72,9 @@ public class TouchControls : MonoBehaviour {
 		
 		FindObjectOfType<PlayerMovement>( ).Jump( );
 
-        if ( levelExit.playerInZone ) {
-			
-            levelExit.LoadLevel( );
+        if ( levelLoader.playerInZone ) {
+
+            levelLoader.load( levelManager.nextLevelTag, levelManager.toLevelSelect, levelManager.pointsToExit);
 
         }
 
