@@ -40,7 +40,7 @@ public class ShotAtPlayerInRange : MonoBehaviour {
 
         if ( transform.localScale.x < 0 && playerCor.transform.position.x > transform.position.x &&
 
-             playerCor.transform.position.x < transform.position.x + playerRange && shotCounter < 0 ) {
+             playerCor.transform.position.x < transform.position.x + playerRange && shotCounter < 0 && playerCor.gameObject.activeSelf ) {
 
             Instantiate( enemyStar, launchPoint.position, launchPoint.rotation );
 
@@ -50,7 +50,7 @@ public class ShotAtPlayerInRange : MonoBehaviour {
 
         if ( transform.localScale.x > 0 && playerCor.transform.position.x < transform.position.x &&
 
-             playerCor.transform.position.x > transform.position.x - playerRange && shotCounter < 0 ) {
+			 playerCor.transform.position.x > transform.position.x - playerRange && shotCounter < 0 && playerCor.gameObject.activeSelf ) {
 
             Instantiate( enemyStar, launchPoint.position, launchPoint.rotation );
 

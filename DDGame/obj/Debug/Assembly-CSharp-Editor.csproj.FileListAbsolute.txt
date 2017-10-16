@@ -55,3 +55,6 @@ C:\Users\lz\Desktop\DD\DDGame\Temp\bin\Debug\UnityEngine.VR.xml
 C:\Users\lz\Desktop\DD\DDGame\obj\Debug\Assembly-CSharp-Editor.csprojResolveAssemblyReference.cache
 C:\Users\lz\Desktop\DD\DDGame\obj\Debug\Assembly-CSharp-Editor.dll
 C:\Users\lz\Desktop\DD\DDGame\obj\Debug\Assembly-CSharp-Editor.pdb
+C:\Users\student\Desktop\D\DDGame\obj\Debug\Assembly-CSharp-Editor.csprojResolveAssemblyReference.cache
+C:\Users\student\Desktop\D\DDGame\obj\Debug\Assembly-CSharp-Editor.dll
+C:\Users\student\Desktop\D\DDGame\obj\Debug\Assembly-CSharp-Editor.pdb
