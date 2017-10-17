@@ -33,13 +33,13 @@ public class PlayerMovement : MonoBehaviour {
 		moveSpeed = 5f;
 
 		jumpHeight = 15f;
+
 	}
 	
 	public void Move( float moveInput ) {
 		
 		moveVelocity = moveInput * moveSpeed;
         
-
 	}
 
 	public void Jump( ) {
@@ -57,6 +57,7 @@ public class PlayerMovement : MonoBehaviour {
             canDoubleJump = false;
 
         }
+
     }
 
     public void CheckDoubleJump( ) {

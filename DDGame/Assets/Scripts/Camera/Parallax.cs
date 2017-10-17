@@ -3,14 +3,19 @@ using System.Collections;
 
 public class Parallax : MonoBehaviour {
 
-    public Transform[ ] backgrounds;
+    [SerializeField]
+    private Transform[ ] backgrounds;
 
+    [SerializeField]
     private float[ ] parallaxScales;
 
-    public float smoothing;
+    [SerializeField]
+    private float smoothing;
 
+    [SerializeField]
     private Transform cam;
 
+    [SerializeField]
     private Vector3 previousCamPos;
 
 	// Use this for initialization

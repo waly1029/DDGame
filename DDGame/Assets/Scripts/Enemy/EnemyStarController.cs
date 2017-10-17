@@ -7,7 +7,7 @@ public class EnemyStarController : MonoBehaviour {
     private float speed;
 
     [SerializeField]
-    private PlayerController player;
+    private GameObject player;
 
     public GameObject impactEffect;
 
@@ -17,17 +17,17 @@ public class EnemyStarController : MonoBehaviour {
     [SerializeField]
     private int damageToGive;
 
-    private LifeManager playerLife;
+    private LifeManager lifeManager;
     // Use this for initialization
     void Start( ) {
 
-        player = FindObjectOfType<PlayerController> ( );
+		lifeManager = FindObjectOfType<LifeManager> ( );
 
-        playerLife = FindObjectOfType<LifeManager> ( );
+		player = FindObjectOfType<PlayerController> ( ).gameObject;
 
-        if ( playerLife.lifeCounter >= 0 && player.enabled == true ) {
+		if ( lifeManager.lifeCounter >= 0 && player.activeSelf == true ) {
 
-            if ( player.transform.position.x < transform.position.x ) {
+			if ( player.transform.position.x < transform.position.x ) {
 
                 speed = -speed;
 
@@ -35,8 +35,8 @@ public class EnemyStarController : MonoBehaviour {
 
             }
 
-        }
-
+		}
+			
     }
 
     // Update is called once per frame

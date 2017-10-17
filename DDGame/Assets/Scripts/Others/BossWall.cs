@@ -5,17 +5,20 @@ using UnityEngine;
 public class BossWall : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
+	void Start ( ) {
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        if (FindObjectOfType<BossHealthManager>() || FindObjectOfType<EnemyHealthManager>())
-        {
+	void Update ( ) {
+		
+        if ( FindObjectOfType<BossHealthManager>( ) || FindObjectOfType<EnemyHealthManager>( ) ) {
+			
             return;
+
         }
 
-        Destroy(gameObject);
+        Destroy( gameObject );
 	}
+
 }

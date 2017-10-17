@@ -4,22 +4,36 @@ using System.Collections;
 public class LifePickUp : MonoBehaviour {
 
     private LifeManager lifeSystem;
-	// Use this for initialization
-	void Start () {
-        lifeSystem = FindObjectOfType<LifeManager>();
-	}
+
+    private AudioSource lifeSoundEffect;
+    // Use this for initialization
+    void Start ( ) {
+
+        lifeSystem = FindObjectOfType<LifeManager>( );
+
+        lifeSoundEffect = gameObject.transform.parent.GetComponent<AudioSource>();
+
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ( ) {
 	
 	}
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.name == "Player")
-        {
-            lifeSystem.GiveLife();
-            Destroy(gameObject);
+    void OnTriggerEnter2D(Collider2D other) {
+
+        if ( other.GetComponent<PlayerController>( ) == null ) {
+
+            return;
+
         }
+
+        lifeSoundEffect.Play( );
+
+        lifeSystem.GiveLife( );
+
+        Destroy( gameObject );
+
     }
+
 }

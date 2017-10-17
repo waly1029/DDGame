@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\LevelManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemy\BossClone.cs">
     <Files>
-      <File FileName="Assets\Scripts\LevelManager.cs" Line="60" Column="37" />
-      <File FileName="Assets\Scripts\HealthManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BossHealthManager.cs" Line="29" Column="53" />
+      <File FileName="Assets\Scripts\Enemy\BossClone.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
