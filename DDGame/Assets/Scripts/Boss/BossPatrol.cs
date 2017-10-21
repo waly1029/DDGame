@@ -35,9 +35,9 @@ public class BossPatrol : MonoBehaviour {
 
     void Start( ) {
 
-		wallCheck = transform.FindChild( "Wall Check" );
+		wallCheck = transform.Find( "Wall Check" );
 
-		edgeCheck = transform.FindChild( "Edge Check" );
+		edgeCheck = transform.Find( "Edge Check" );
 
         myrigidbody2D = GetComponent<Rigidbody2D>( );
 

@@ -20,7 +20,7 @@ public class MovingPlatform : MonoBehaviour {
 	// Use this for initialization
 	void Start ( ) {
 
-        platForm = transform.FindChild( "Platform" ).gameObject;
+        platForm = transform.Find( "Platform" ).gameObject;
 
         currentPoint = points[ pointSelect ];
 

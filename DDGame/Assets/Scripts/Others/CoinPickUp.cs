@@ -22,7 +22,7 @@ public class CoinPickUp : MonoBehaviour {
 
         }
         
-        ScoreManager.AddPionts( pointsToAdd );
+        UIController.AddPionts( pointsToAdd );
 
         coinSoundEffect.Play( );
 

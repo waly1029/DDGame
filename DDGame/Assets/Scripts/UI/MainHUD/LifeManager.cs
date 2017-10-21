@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class LifeManager : MonoBehaviour {
-    
+
     public int lifeCounter;
 
     [SerializeField]
@@ -22,46 +22,50 @@ public class LifeManager : MonoBehaviour {
     private PlayerController player;
 
     // Use this for initialization
-    void Start ( ) {
+    void Start( ) {
 
-        theText = transform.FindChild( "Text" ).GetComponent<Text>( );
+        theText = transform.Find("Text").GetComponent<Text>();
 
-        lifeCounter = PlayerPrefs.GetInt( "PlayerCurrentLives" );
+        lifeCounter = PlayerPrefs.GetInt("PlayerCurrentLives");
 
-        player = FindObjectOfType<PlayerController>( );
+        player = FindObjectOfType<PlayerController>();
 
-        gameOverScreen = GameObject.Find( "Main HUD" ).transform.FindChild( "GameOverScreen" ).gameObject;
+        gameOverScreen = GameObject.Find("Main HUD").transform.Find("GameOverScreen").gameObject;
 
-	}
-	
-	// Update is called once per frame
-	void Update ( ) {
-        
-	}
+    }
+
+    // Update is called once per frame
+    void Update( ) {
+
+    }
 
     public void Life( ) {
+        
+        if (lifeCounter < 0) {
 
-        theText.text = "x " + lifeCounter;
+            gameOverScreen.SetActive(true);
 
-        if ( lifeCounter < 0 ) {
-
-            gameOverScreen.SetActive( true );
-
-            player.gameObject.SetActive( false );
+            player.gameObject.SetActive(false);
 
         }
 
-        if ( gameOverScreen.activeSelf ) {
+        if (gameOverScreen.activeSelf) {
 
             waitAfterGameOver -= Time.deltaTime;
 
         }
 
-        if ( waitAfterGameOver < 0 ) {
+        if (waitAfterGameOver < 0) {
 
-            SceneManager.LoadScene( mainMenu );
+            SceneManager.LoadScene(mainMenu);
 
         }
+
+    }
+
+    public void DrawLife( ) {
+
+        theText.text = "x " + lifeCounter;
 
     }
 

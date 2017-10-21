@@ -21,7 +21,7 @@ public class ShotAtPlayerInRange : MonoBehaviour {
     // Use this for initialization
     void Start ( ) {
 
-        launchPoint = transform.FindChild( "Launch Point" );
+        launchPoint = transform.Find( "Launch Point" );
 
         playerCor = FindObjectOfType<PlayerController> ( );
 

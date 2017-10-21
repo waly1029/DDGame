@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour {
 
         playerAnim = FindObjectOfType<PlayerAnimation> ( );
 
-		firePoint = transform.FindChild ("Fire Point");
+		firePoint = transform.Find ("Fire Point");
 
         shotDelay = 0.3f;
         

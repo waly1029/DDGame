@@ -30,9 +30,9 @@ public class EnemyPatrol : MonoBehaviour {
 	// Use this for initialization
 	void Start ( ) {
 
-        wallCheck = transform.FindChild( "Wall Check" );
+        wallCheck = transform.Find( "Wall Check" );
 
-        edgeCheck = transform.FindChild( "Edge Check" );
+        edgeCheck = transform.Find( "Edge Check" );
 
     }
 	

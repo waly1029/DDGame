@@ -32,7 +32,7 @@ public class BossHealthManager : MonoBehaviour {
 			
             Instantiate( deathEffect, transform.position, transform.rotation );
 
-            ScoreManager.AddPionts( pointsOnDeath );
+            UIController.AddPionts( pointsOnDeath );
 
             if( transform.localScale.y > minSize ) {
 

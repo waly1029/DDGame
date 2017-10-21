@@ -4,36 +4,27 @@ using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour {
 
-	[SerializeField]
+    [SerializeField]
     private float startingTime;
 
-	[SerializeField]
+    [SerializeField]
     private float countingTime;
 
-	[SerializeField]
+    [SerializeField]
     private Text theText;
-    
+
     private PauseMenu thePauseMenu;
     
-    private HealthManager healthManager;
-
-	// Use this for initialization
-	void Start ( ) {
+    // Use this for initialization
+    void Start( ) {
 
         countingTime = startingTime;
 
-        theText = transform.FindChild( "TimeCounter" ).GetComponent<Text> ( );
+        theText = transform.Find("TimeCounter").GetComponent<Text>();
 
-        thePauseMenu = FindObjectOfType<PauseMenu>( );
-
-        healthManager = FindObjectOfType<HealthManager>( );
-        //player = FindObjectOfType<PlayerController>();
-	}
-	
-	// Update is called once per frame
-	void Update ( ) {
-
-	}
+        thePauseMenu = FindObjectOfType<PauseMenu>();
+        
+    }
 
     public void TimeCount( ) {
 
@@ -47,11 +38,15 @@ public class TimeManager : MonoBehaviour {
 
         if ( countingTime <= 0 ) {
 
-            healthManager.KillPlayer( );
+            UIController.KillPlayer( );
 
         }
 
-        theText.text = "" + Mathf.Round( countingTime );
+    }
+
+    public void DrawTimeCount( ) {
+
+        theText.text = "" + Mathf.Round(countingTime);
 
     }
 

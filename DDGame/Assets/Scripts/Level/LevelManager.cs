@@ -72,7 +72,7 @@ public class LevelManager : MonoBehaviour {
 
         playerCor.transform.position = currentCheckPoint.transform.position;
         
-        healthManager.FullHealth( );
+        UIController.FullHealth( );
         
         playerCor.gameObject.SetActive( true );
 
@@ -92,7 +92,7 @@ public class LevelManager : MonoBehaviour {
 
         camera.isFollowing = false;
 
-        ScoreManager.AddPionts( -pointPenaltyOnDeath );
+        UIController.AddPionts( -pointPenaltyOnDeath );
 
     }
 }

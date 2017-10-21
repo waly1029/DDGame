@@ -3,11 +3,10 @@ using System.Collections;
 using UnityEngine.UI;
 public class HealthManager : MonoBehaviour {
 
-	[SerializeField]
+    [SerializeField]
     private int maxPlayerHealth;
 
-	[SerializeField]
-    private static int playerHealth;
+    public static int playerHealth;
 
     [SerializeField]
     private Slider healthBar;
@@ -18,36 +17,36 @@ public class HealthManager : MonoBehaviour {
 
     private TimeManager timeManager;
 
-	private LevelManager levelManager;
+    private LevelManager levelManager;
 
-	// Use this for initialization
-	void Start ( ) {
+    // Use this for initialization
+    void Start( ) {
 
-        healthBar = transform.FindChild( "Slider" ).GetComponent<Slider> ( );
+        healthBar = transform.Find("Slider").GetComponent<Slider>( );
 
-        playerHealth = PlayerPrefs.GetInt( "PlayerCurrentHealth" );
+        playerHealth = PlayerPrefs.GetInt("PlayerCurrentHealth");
 
-        levelManager = FindObjectOfType<LevelManager> ( );
+        levelManager = FindObjectOfType<LevelManager>( );
 
-        lifeManager = FindObjectOfType<LifeManager> ( );
+        lifeManager = FindObjectOfType<LifeManager>( );
 
-        timeManager = FindObjectOfType<TimeManager> ( );
+        timeManager = FindObjectOfType<TimeManager>( );
 
         playerHealth = maxPlayerHealth;
 
         isDead = false;
 
     }
-	
-	// Update is called once per frame
-	void Update ( ) {
-		
-	}
+
+    // Update is called once per frame
+    void Update( ) {
+
+    }
 
     public void Health( ) {
-        
+
         if ( playerHealth <= 0 && !isDead ) {
-			
+
             Debug.Log( "Dead" );
 
             playerHealth = 0;
@@ -63,34 +62,17 @@ public class HealthManager : MonoBehaviour {
         }
 
         if ( playerHealth > maxPlayerHealth ) {
-			
+
             playerHealth = maxPlayerHealth;
 
         }
 
+    }
+
+    public void DrawHealth( ) {
+
         healthBar.value = playerHealth;
 
     }
-
-    public static void HurtPlayer( int damageToGive ) {
-		
-        playerHealth -= damageToGive;
-
-        PlayerPrefs.SetInt( "PlayerCurrentHealth", playerHealth );
-
-    }
-
-    public void FullHealth( ) {
-
-        playerHealth = PlayerPrefs.GetInt( "PlayerMaxHealth" );
-
-        PlayerPrefs.SetInt( "PlayerCurrentHealth", playerHealth );
-
-    }
-
-    public void KillPlayer( ) {
-		
-        playerHealth = 0;
-
-    }
+    
 }

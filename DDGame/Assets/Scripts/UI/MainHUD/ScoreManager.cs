@@ -8,45 +8,48 @@ public class ScoreManager : MonoBehaviour {
     [SerializeField]
     private Text text;
 
-	void Start ( ) {
+    void Start( ) {
 
-        text = transform.FindChild( "ScoreCounter" ).GetComponent<Text> ( );
+        text = transform.Find( "ScoreCounter" ).GetComponent<Text>( );
 
         score = PlayerPrefs.GetInt( "CurrentPlayerScores" );
 
-	}
-	
-	// Update is called once per frame
-	void Update ( ) {
-        
-	}
+    }
+
+    // Update is called once per frame
+    void Update( ) {
+
+    }
 
     public void Score( ) {
 
-        if ( score < 0 ) {
+        if (score < 0) {
 
             score = 0;
 
         }
 
+    }
+
+    public void DrawScore( ) {
+
         text.text = "" + score;
 
     }
-
-    public static void AddPionts( int pointsToAdd ) {
+    /*public static void AddPionts( int pointsToAdd ) {
 
         score += pointsToAdd;
 
         PlayerPrefs.SetInt( "CurrentPlayerScores", score );
 
-    }
+    }*/
 
-    public static void Reset( ) {
+    /*public static void Reset( ) {
 
         score = 0;
 
         PlayerPrefs.SetInt( "CurrentPlayerScores", score );
 
-    }
+    }*/
 
 }

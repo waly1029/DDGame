@@ -19,7 +19,7 @@ public class PlayerCheckGround : MonoBehaviour {
 	// Use this for initialization
 	void Start ( ) {
 
-		groundCheck = transform.FindChild ( "Ground Check" ).gameObject;
+		groundCheck = transform.Find ( "Ground Check" ).gameObject;
 
 		groundCheckRadius = 0.1f;
 

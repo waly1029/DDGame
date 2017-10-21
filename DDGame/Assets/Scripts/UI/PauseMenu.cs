@@ -16,7 +16,7 @@ public class PauseMenu : MonoBehaviour {
 
     void Start( ) {
 
-		pauseMenuCanvas = transform.FindChild ( "Canvas" ).gameObject;
+		pauseMenuCanvas = transform.Find ( "Canvas" ).gameObject;
 
 	}
 

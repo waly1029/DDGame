@@ -19,7 +19,7 @@ public class CoinBlock : MonoBehaviour {
 		
         if ( other.name == "Player Head" ) {
 			
-            ScoreManager.AddPionts( scoreEachTime );
+            UIController.AddPionts( scoreEachTime );
 
             //Debug.Log("HeadTouched");
 

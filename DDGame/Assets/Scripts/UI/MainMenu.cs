@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour {
 
     void Start( ) {
 
-        gameButtonPanel = transform.FindChild( "OnGameButtonPanel" ).gameObject;
+        gameButtonPanel = transform.Find( "OnGameButtonPanel" ).gameObject;
 
     }
 
@@ -70,7 +70,7 @@ public class MainMenu : MonoBehaviour {
 
 		PlayerPrefs.DeleteAll( );
 
-        Debug.Log( "Game Exited" );
+        Debug.Log( "Data Cleard & Game Exited" );
 
         Application.Quit( );
 
