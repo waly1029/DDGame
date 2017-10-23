@@ -17,7 +17,7 @@ public class LevelLoader : MonoBehaviour {
 	
     public void load( string nextLevelTag, string toLevelSelect, int score ) {
 
-        if ( Input.GetAxisRaw( "Vertical" ) > 0 && playerInZone && ScoreManager.score >= score ) {
+        if ( Input.GetAxisRaw( "Vertical" ) > 0 && playerInZone && ScoreModel.score >= score ) {
 
             PlayerPrefs.SetInt( nextLevelTag, 1 );
 

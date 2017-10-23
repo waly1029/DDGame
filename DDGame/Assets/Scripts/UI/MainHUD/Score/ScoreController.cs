@@ -6,9 +6,9 @@ public class ScoreController : MonoBehaviour {
 
     public static void AddPionts( int pointsToAdd ) {
 
-        ScoreManager.score += pointsToAdd;
+        ScoreModel.score += pointsToAdd;
 
-        PlayerPrefs.SetInt( "CurrentPlayerScores", ScoreManager.score );
+		PlayerPrefs.SetInt( "CurrentPlayerScores", ScoreModel.score );
 
     }
 

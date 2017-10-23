@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	private PlayerCheckGround playerCheckGround;
 
-	private PlayerMovement playerMovement;
+	//private PlayerMovement playerMovement;
 	// Use this for initialization
 	void Start ( ) {
 
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour {
 
 		playerCheckGround = FindObjectOfType<PlayerCheckGround> ( );
 
-		playerMovement = FindObjectOfType<PlayerMovement> ( );
+		//playerMovement = FindObjectOfType<PlayerMovement> ( );
 
 		moveSpeed = 5f;
 
@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour {
 
 		}
 
-        if ( Input.GetButtonDown( "Jump" ) && !playerCheckGround.grounded && playerMovement.canDoubleJump ) {
+        if ( Input.GetButtonDown( "Jump" ) && !playerCheckGround.grounded && canDoubleJump ) {
 
             playerRigidbody.velocity = new Vector2( playerRigidbody.velocity.x, jumpHeight );
 

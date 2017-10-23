@@ -4,22 +4,17 @@ using UnityEngine;
 
 public class TimeController : MonoBehaviour {
 
-    private TimeManager timeManager;
+    private TimeModel timeModel;
     // Use this for initialization
     void Start ( ) {
 
-        timeManager = FindObjectOfType<TimeManager>();
+		timeModel = FindObjectOfType<TimeModel>();
 
     }
-	
-	// Update is called once per frame
-	void Update ( ) {
-		
-	}
 
     public void RestTime( ) {
 
-        timeManager.countingTime = timeManager.startingTime;
+		timeModel.countingTime = timeModel.startingTime;
 
     }
 

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TimeManager : MonoBehaviour {
+public class TimeModel : MonoBehaviour {
 
     public float startingTime;
 

@@ -6,22 +6,22 @@ public class MainHUDController : MonoBehaviour {
 
     private HealthManager healthManager;
 
-    private ScoreManager scoreManager;
+    //private ScoreManager scoreManager;
 
-    private LifeManager lifeManager;
+    //private LifeManager lifeManager;
 
-    private TimeManager timeManager;
+    private TimeModel timeModel;
 
 	// Use this for initialization
 	void Start ( ) {
 
         healthManager = FindObjectOfType<HealthManager> ( );
 
-        scoreManager = FindObjectOfType<ScoreManager> ( );
+        //scoreManager = FindObjectOfType<ScoreManager> ( );
 
-        lifeManager = FindObjectOfType<LifeManager> ( );
+        //lifeManager = FindObjectOfType<LifeManager> ( );
 
-        timeManager = FindObjectOfType<TimeManager> ( );
+		timeModel = FindObjectOfType<TimeModel> ( );
 
     }
 	
@@ -42,7 +42,7 @@ public class MainHUDController : MonoBehaviour {
 
         //lifeManager.Life( );
 
-        timeManager.TimeCount( );
+		timeModel.TimeCount( );
 
 	}
 

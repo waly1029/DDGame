@@ -1,9 +1,24 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemy\BossClone.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\PauseMenu.cs">
     <Files>
-      <File FileName="Assets\Scripts\BossHealthManager.cs" Line="29" Column="53" />
-      <File FileName="Assets\Scripts\Enemy\BossClone.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\PauseMenu.cs" Line="55" Column="6" />
+      <File FileName="Assets\PauseMenuController.cs" Line="14" Column="23" />
+      <File FileName="Assets\Scripts\UI\MainHUD\Life\LifeController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\MainHUD\Life\LifeUI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Enemy\EnemyStarController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\MainHUD\MainHUDController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Others\LifePickUp.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\MainHUD\Life\LifeModel.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\MainHUD\TimeController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\MainHUD\TimeUI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\PlayerMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\PlayerKnockEnemy.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\PlayerCheckGround.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\PlayerAnimation.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\TouchControls.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\PlayerOnMovingPlatForm.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

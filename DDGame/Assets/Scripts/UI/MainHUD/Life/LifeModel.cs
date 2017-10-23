@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class LifeManager : MonoBehaviour {
+public class LifeModel : MonoBehaviour {
 
     public int lifeCounter;
 

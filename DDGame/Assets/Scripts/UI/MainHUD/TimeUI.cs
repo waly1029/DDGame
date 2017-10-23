@@ -3,28 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreUI : MonoBehaviour {
+public class TimeUI : MonoBehaviour {
 
     [SerializeField]
-    private Text text;
-    
+    private Text theText;
+
+    private TimeModel timeModel;
     // Use this for initialization
     void Start ( ) {
 
-        text = transform.Find( "ScoreCounter" ).GetComponent<Text>( );
+        theText = transform.Find( "TimeCounter" ).GetComponent<Text>( );
+
+		timeModel = FindObjectOfType<TimeModel> ( );
 
     }
 	
 	// Update is called once per frame
 	void Update ( ) {
-
+		
         DrawUI( );
 
-    }
+	}
 
     void DrawUI( ) {
 
-        text.text = "" + ScoreManager.score;
+		theText.text = "" + Mathf.Round( timeModel.countingTime );
 
     }
 }

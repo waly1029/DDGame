@@ -8,13 +8,14 @@ public class LifeUI : MonoBehaviour {
     [SerializeField]
     private Text theText;
 
-    private LifeManager lifeManager;
+	private LifeModel lifeModel;
+
     // Use this for initialization
     void Start ( ) {
 
         theText = transform.Find( "Text" ).GetComponent<Text>( );
 
-        lifeManager = FindObjectOfType<LifeManager> ( );
+		lifeModel = FindObjectOfType<LifeModel> ( );
 
     }
 	
@@ -27,7 +28,7 @@ public class LifeUI : MonoBehaviour {
 
     void DrawUI( ) {
 
-        theText.text = "x " + lifeManager.lifeCounter;
+		theText.text = "x " + lifeModel.lifeCounter;
 
     }
 }

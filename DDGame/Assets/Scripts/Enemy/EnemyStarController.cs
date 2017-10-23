@@ -17,15 +17,15 @@ public class EnemyStarController : MonoBehaviour {
     [SerializeField]
     private int damageToGive;
 
-    private LifeManager lifeManager;
+    private LifeModel lifeModel;
     // Use this for initialization
     void Start( ) {
 
-		lifeManager = FindObjectOfType<LifeManager> ( );
+		lifeModel = FindObjectOfType<LifeModel> ( );
 
 		player = FindObjectOfType<PlayerController> ( ).gameObject;
 
-		if ( lifeManager.lifeCounter >= 0 && player.activeSelf == true ) {
+		if ( lifeModel.lifeCounter >= 0 && player.activeSelf == true ) {
 
 			if ( player.transform.position.x < transform.position.x ) {
 

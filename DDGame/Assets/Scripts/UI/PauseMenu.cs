@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+
 public class PauseMenu : MonoBehaviour {
 
 	[SerializeField]
@@ -14,10 +15,13 @@ public class PauseMenu : MonoBehaviour {
 
     public bool isPaused;
 
+	private PauseMenuController ps;
+
     void Start( ) {
 
 		pauseMenuCanvas = transform.Find ( "Canvas" ).gameObject;
 
+		ps = FindObjectOfType<PauseMenuController> ( );
 	}
 
     void Update( ) {
@@ -35,18 +39,18 @@ public class PauseMenu : MonoBehaviour {
             Time.timeScale = 1f;
 
         }
-
-        if ( Input.GetKeyDown( KeyCode.Escape ) ) {
 			
-            PauseUnpause( );
-
-        }
+		PauseUnpause ( );
 
     }
 
     public void PauseUnpause( ) {
-		
-        isPaused = !isPaused;
+
+		if ( ps.GetPaused( ) ) {
+
+			isPaused = !isPaused;
+
+		}
 
     }
 
