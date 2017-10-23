@@ -3,13 +3,13 @@ using System.Collections;
 
 public class LifePickUp : MonoBehaviour {
 
-    private LifeManager lifeSystem;
+    private LifeController lifeCor;
 
     private AudioSource lifeSoundEffect;
     // Use this for initialization
     void Start ( ) {
 
-        lifeSystem = FindObjectOfType<LifeManager>( );
+        lifeCor = FindObjectOfType<LifeController>( );
 
         lifeSoundEffect = gameObject.transform.parent.GetComponent<AudioSource>();
 
@@ -30,7 +30,7 @@ public class LifePickUp : MonoBehaviour {
 
         lifeSoundEffect.Play( );
 
-        lifeSystem.GiveLife( );
+        lifeCor.GiveLife( );
 
         Destroy( gameObject );
 

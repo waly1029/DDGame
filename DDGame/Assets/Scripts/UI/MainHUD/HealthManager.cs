@@ -13,24 +13,24 @@ public class HealthManager : MonoBehaviour {
 
     public bool isDead;
 
-    private LifeManager lifeManager;
+    private LifeController lifeCor;
 
-    private TimeManager timeManager;
+    private TimeController timeCor;
 
     private LevelManager levelManager;
 
     // Use this for initialization
     void Start( ) {
 
-        healthBar = transform.Find("Slider").GetComponent<Slider>( );
+        healthBar = transform.Find( "Slider" ).GetComponent<Slider>( );
 
-        playerHealth = PlayerPrefs.GetInt("PlayerCurrentHealth");
+        playerHealth = PlayerPrefs.GetInt( "PlayerCurrentHealth" );
 
         levelManager = FindObjectOfType<LevelManager>( );
 
-        lifeManager = FindObjectOfType<LifeManager>( );
+        lifeCor = FindObjectOfType<LifeController>( );
 
-        timeManager = FindObjectOfType<TimeManager>( );
+        timeCor = FindObjectOfType<TimeController>( );
 
         playerHealth = maxPlayerHealth;
 
@@ -53,11 +53,11 @@ public class HealthManager : MonoBehaviour {
 
             levelManager.RespawnPlayer( );
 
-            lifeManager.TakeLife( );
+            lifeCor.TakeLife( );
 
             isDead = true;
 
-            timeManager.RestTime( );
+            timeCor.RestTime( );
 
         }
 

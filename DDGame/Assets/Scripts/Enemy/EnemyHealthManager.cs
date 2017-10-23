@@ -24,7 +24,7 @@ public class EnemyHealthManager : MonoBehaviour {
 
             Instantiate( deathEffect, transform.position, transform.rotation );
 
-            UIController.AddPionts( pointsOnDeath );
+            ScoreController.AddPionts( pointsOnDeath );
 
             Destroy( gameObject );
 

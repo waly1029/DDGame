@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour {
 
-    public static void AddPionts( int pointsToAdd ) {
-
-        ScoreManager.score += pointsToAdd;
-
-        PlayerPrefs.SetInt("CurrentPlayerScores", ScoreManager.score);
-
-    }
+    
 
     public static void HurtPlayer( int damageToGive ) {
 

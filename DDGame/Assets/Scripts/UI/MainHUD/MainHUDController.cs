@@ -28,19 +28,19 @@ public class MainHUDController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ( ) {
 
-        lifeManager.DrawLife( );
+        //lifeManager.DrawLife( );
 
-        scoreManager.DrawScore( );
+        //scoreManager.DrawScore( );
 
         healthManager.DrawHealth( );
 
-        timeManager.DrawTimeCount( );
+        //timeManager.DrawTimeCount( );
 
         healthManager.Health( );
         
-        scoreManager.Score( ); 
+        //scoreManager.Score( ); 
 
-        lifeManager.Life( );
+        //lifeManager.Life( );
 
         timeManager.TimeCount( );
 

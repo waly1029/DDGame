@@ -5,12 +5,7 @@ public class ScoreManager : MonoBehaviour {
 
     public static int score;
 
-    [SerializeField]
-    private Text text;
-
     void Start( ) {
-
-        text = transform.Find( "ScoreCounter" ).GetComponent<Text>( );
 
         score = PlayerPrefs.GetInt( "CurrentPlayerScores" );
 
@@ -19,21 +14,17 @@ public class ScoreManager : MonoBehaviour {
     // Update is called once per frame
     void Update( ) {
 
+        RestScore( );
+
     }
 
-    public void Score( ) {
-
-        if (score < 0) {
+    void RestScore( ) {
+        
+        if ( score < 0 ) {
 
             score = 0;
 
         }
-
-    }
-
-    public void DrawScore( ) {
-
-        text.text = "" + score;
 
     }
     /*public static void AddPionts( int pointsToAdd ) {

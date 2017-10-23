@@ -1,17 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour {
 
-    [SerializeField]
-    private float startingTime;
+    public float startingTime;
 
-    [SerializeField]
-    private float countingTime;
-
-    [SerializeField]
-    private Text theText;
+    public float countingTime;
 
     private PauseMenu thePauseMenu;
     
@@ -20,9 +14,7 @@ public class TimeManager : MonoBehaviour {
 
         countingTime = startingTime;
 
-        theText = transform.Find("TimeCounter").GetComponent<Text>();
-
-        thePauseMenu = FindObjectOfType<PauseMenu>();
+        thePauseMenu = FindObjectOfType<PauseMenu>( );
         
     }
 
@@ -44,15 +36,4 @@ public class TimeManager : MonoBehaviour {
 
     }
 
-    public void DrawTimeCount( ) {
-
-        theText.text = "" + Mathf.Round(countingTime);
-
-    }
-
-    public void RestTime( ) {
-		
-        countingTime = startingTime;
-
-    }
 }

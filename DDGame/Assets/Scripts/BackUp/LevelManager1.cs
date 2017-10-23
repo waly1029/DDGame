@@ -63,7 +63,7 @@ public class LevelManager1 : MonoBehaviour {
 
         //playerCor.GetComponent<Renderer>( ).enabled = false;
 
-        UIController.AddPionts( -pointPenaltyOnDeath );
+        ScoreController.AddPionts( -pointPenaltyOnDeath );
 
         //gravityStore = player.GetComponent<Rigidbody2D>().gravityScale;
         //player.GetComponent<Rigidbody2D>().gravityScale = 0f;

@@ -92,7 +92,7 @@ public class LevelManager : MonoBehaviour {
 
         camera.isFollowing = false;
 
-        UIController.AddPionts( -pointPenaltyOnDeath );
+        ScoreController.AddPionts( -pointPenaltyOnDeath );
 
     }
 }
