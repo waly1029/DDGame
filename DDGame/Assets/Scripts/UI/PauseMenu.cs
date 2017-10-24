@@ -22,6 +22,7 @@ public class PauseMenu : MonoBehaviour {
 		pauseMenuCanvas = transform.Find ( "Canvas" ).gameObject;
 
 		ps = FindObjectOfType<PauseMenuController> ( );
+
 	}
 
     void Update( ) {

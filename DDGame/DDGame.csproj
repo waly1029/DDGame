@@ -81,9 +81,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\LifeUI.cs" />
-    <Compile Include="Assets\ScoreController.cs" />
-    <Compile Include="Assets\ScoreUI.cs" />
+    <Compile Include="Assets\PauseMenuController.cs" />
     <Compile Include="Assets\Scripts\BackUp\BaseCharacterClass.cs" />
     <Compile Include="Assets\Scripts\BackUp\LevelManager1.cs" />
     <Compile Include="Assets\Scripts\BackUp\LevelSelectManager1.cs" />
@@ -130,11 +128,16 @@
     <Compile Include="Assets\Scripts\UI\GameSelection_HUD\LevelSelectMovement.cs" />
     <Compile Include="Assets\Scripts\UI\GameSelection_HUD\LevelSelectTouch.cs" />
     <Compile Include="Assets\Scripts\UI\MainHUD\HealthManager.cs" />
-    <Compile Include="Assets\Scripts\UI\MainHUD\LifeController.cs" />
-    <Compile Include="Assets\Scripts\UI\MainHUD\LifeManager.cs" />
+    <Compile Include="Assets\Scripts\UI\MainHUD\Life\LifeController.cs" />
+    <Compile Include="Assets\Scripts\UI\MainHUD\Life\LifeModel.cs" />
+    <Compile Include="Assets\Scripts\UI\MainHUD\Life\LifeUI.cs" />
     <Compile Include="Assets\Scripts\UI\MainHUD\MainHUDController.cs" />
-    <Compile Include="Assets\Scripts\UI\MainHUD\ScoreManager.cs" />
-    <Compile Include="Assets\Scripts\UI\MainHUD\TimeManager.cs" />
+    <Compile Include="Assets\Scripts\UI\MainHUD\Score\ScoreController.cs" />
+    <Compile Include="Assets\Scripts\UI\MainHUD\Score\ScoreModel.cs" />
+    <Compile Include="Assets\Scripts\UI\MainHUD\Score\ScoreUI.cs" />
+    <Compile Include="Assets\Scripts\UI\MainHUD\TimeController.cs" />
+    <Compile Include="Assets\Scripts\UI\MainHUD\TimeModel.cs" />
+    <Compile Include="Assets\Scripts\UI\MainHUD\TimeUI.cs" />
     <Compile Include="Assets\Scripts\UI\MainHUD\UIController.cs" />
     <Compile Include="Assets\Scripts\UI\MainHUD\UIModel.cs" />
     <Compile Include="Assets\Scripts\UI\MainHUD\UIView.cs" />
@@ -147,8 +150,6 @@
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TileAnimator.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TiledInitialShaderProperties.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TiledMap.cs" />
-    <Compile Include="Assets\TimeController.cs" />
-    <Compile Include="Assets\TimeUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Tiled2Unity\Imported\Level03.tiled2unity.xml" />
