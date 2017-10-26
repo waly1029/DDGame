@@ -30,7 +30,7 @@ public class TimeModel : MonoBehaviour {
 
         if ( countingTime <= 0 ) {
 
-            UIController.KillPlayer( );
+            HealthController.KillPlayer( );
 
         }
 
