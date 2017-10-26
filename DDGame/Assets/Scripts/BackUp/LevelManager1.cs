@@ -19,7 +19,7 @@ public class LevelManager1 : MonoBehaviour {
 
     private new CameraController camera;
 
-    private HealthManager healthManager;
+    private HealthModel healthModel;
     
     private GameObject player;
 	// Use this for initialization
@@ -29,7 +29,7 @@ public class LevelManager1 : MonoBehaviour {
 
         camera = FindObjectOfType<CameraController> ( );
 
-        healthManager = FindObjectOfType<HealthManager> ( );
+		healthModel = FindObjectOfType<HealthModel> ( );
         
         player = GameObject.Find( "Player" );
     }
@@ -80,9 +80,9 @@ public class LevelManager1 : MonoBehaviour {
 
         //player.GetComponent<Rigidbody2D>().gravityScale = player.gravityStore;
         //player.onLadder = false;
-        UIController.FullHealth( );
+        HealthController.FullHealth( );
 
-        healthManager.isDead = false;
+//        healthModel.isDead = false;
 
         camera.isFollowing = true;
 

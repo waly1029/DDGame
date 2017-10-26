@@ -15,13 +15,13 @@ public class PauseMenu : MonoBehaviour {
 
     public bool isPaused;
 
-	private PauseMenuController ps;
+	private PauseMenuController pauseMenuCor;
 
     void Start( ) {
 
 		pauseMenuCanvas = transform.Find ( "Canvas" ).gameObject;
 
-		ps = FindObjectOfType<PauseMenuController> ( );
+		pauseMenuCor = FindObjectOfType<PauseMenuController> ( );
 
 	}
 
@@ -47,7 +47,7 @@ public class PauseMenu : MonoBehaviour {
 
     public void PauseUnpause( ) {
 
-		if ( ps.GetPaused( ) ) {
+		if ( pauseMenuCor.GetPaused( ) ) {
 
 			isPaused = !isPaused;
 

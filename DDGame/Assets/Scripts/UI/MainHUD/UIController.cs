@@ -6,26 +6,26 @@ public class UIController : MonoBehaviour {
 
     
 
-    public static void HurtPlayer( int damageToGive ) {
+    /*public static void HurtPlayer( int damageToGive ) {
 
-        HealthManager.playerHealth -= damageToGive;
+        HealthModel.playerHealth -= damageToGive;
 
-        PlayerPrefs.SetInt("PlayerCurrentHealth", HealthManager.playerHealth);
+		PlayerPrefs.SetInt("PlayerCurrentHealth", HealthModel.playerHealth);
 
     }
 
     static public void FullHealth( ) {
 
-        HealthManager.playerHealth = PlayerPrefs.GetInt("PlayerMaxHealth");
+		HealthModel.playerHealth = PlayerPrefs.GetInt("PlayerMaxHealth");
 
-        PlayerPrefs.SetInt("PlayerCurrentHealth", HealthManager.playerHealth);
+		PlayerPrefs.SetInt("PlayerCurrentHealth", HealthModel.playerHealth);
 
     }
 
     static public void KillPlayer( ) {
 
-        HealthManager.playerHealth = 0;
+		HealthModel.playerHealth = 0;
 
-    }
+    }*/
 
 }

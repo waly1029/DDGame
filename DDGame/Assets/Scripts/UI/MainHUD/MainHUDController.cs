@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MainHUDController : MonoBehaviour {
 
-    private HealthManager healthManager;
+    private HealthModel healthModel;
 
     //private ScoreManager scoreManager;
 
@@ -15,7 +15,7 @@ public class MainHUDController : MonoBehaviour {
 	// Use this for initialization
 	void Start ( ) {
 
-        healthManager = FindObjectOfType<HealthManager> ( );
+		healthModel = FindObjectOfType<HealthModel> ( );
 
         //scoreManager = FindObjectOfType<ScoreManager> ( );
 
@@ -32,11 +32,11 @@ public class MainHUDController : MonoBehaviour {
 
         //scoreManager.DrawScore( );
 
-        healthManager.DrawHealth( );
+        //healthManager.DrawHealth( );
 
         //timeManager.DrawTimeCount( );
 
-        healthManager.Health( );
+		healthModel.Health( );
         
         //scoreManager.Score( ); 
 

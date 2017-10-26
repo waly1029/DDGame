@@ -82,7 +82,7 @@ public class TouchControls : MonoBehaviour {
 
     public void Pause( ) {
 		
-        thePauseMenu.PauseUnpause( );
+        thePauseMenu.isPaused = true;
 
     }
 

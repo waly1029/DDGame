@@ -10,7 +10,7 @@ public class HurtPlayerOnContact : MonoBehaviour {
 
         if ( other.name == "Player" ) {
 
-            UIController.HurtPlayer( damageToGive );
+            HealthController.HurtPlayer( damageToGive );
 
             other.GetComponent<AudioSource>( ).Play( );
 

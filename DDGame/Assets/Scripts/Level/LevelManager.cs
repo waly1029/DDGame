@@ -25,9 +25,13 @@ public class LevelManager : MonoBehaviour {
 
     private new CameraController camera;
 
-    private HealthManager healthManager;
+    private HealthModel healthModel;
 
     private LevelLoader levelLoader;
+
+	private LifeController lifeCor;
+
+	private TimeController timeCor;
     
 	void Start ( ) {
 
@@ -35,9 +39,13 @@ public class LevelManager : MonoBehaviour {
 
         camera = FindObjectOfType<CameraController> ( );
 
-        healthManager = FindObjectOfType<HealthManager> ( );
+        healthModel = FindObjectOfType<HealthModel> ( );
+
+		lifeCor = FindObjectOfType<LifeController> ( );
 
         levelLoader = FindObjectOfType<LevelLoader> ( );
+
+		timeCor = FindObjectOfType<TimeController>( );
 
     }
 	
@@ -71,12 +79,14 @@ public class LevelManager : MonoBehaviour {
         Instantiate( respawnParticle, currentCheckPoint.transform.position, currentCheckPoint.transform.rotation );
 
         playerCor.transform.position = currentCheckPoint.transform.position;
+
+		timeCor.RestTime( );
         
-        UIController.FullHealth( );
+        HealthController.FullHealth( );
         
         playerCor.gameObject.SetActive( true );
 
-        healthManager.isDead = false;
+        healthModel.isDead = false;
 
         camera.isFollowing = true;
 
@@ -94,5 +104,8 @@ public class LevelManager : MonoBehaviour {
 
         ScoreController.AddPionts( -pointPenaltyOnDeath );
 
+		lifeCor.TakeLife( );
+
     }
+
 }

@@ -22,7 +22,7 @@ public class HealthPickUp : MonoBehaviour {
 
         }
 
-        UIController.HurtPlayer( -healthToGive );
+        HealthController.HurtPlayer( -healthToGive );
 
         pickUpSound.Play( );
 

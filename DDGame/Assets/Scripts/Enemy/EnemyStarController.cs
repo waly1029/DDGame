@@ -54,7 +54,7 @@ public class EnemyStarController : MonoBehaviour {
 
             Debug.Log( "touchPlayer" );
 
-            UIController.HurtPlayer( damageToGive );
+            HealthController.HurtPlayer( damageToGive );
 
         }
 
