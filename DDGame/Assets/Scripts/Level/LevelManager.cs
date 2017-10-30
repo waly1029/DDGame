@@ -4,6 +4,9 @@ using System.Collections;
 public class LevelManager : MonoBehaviour {
 
     [SerializeField]
+    public static Transform tran;
+
+    [SerializeField]
     private int pointPenaltyOnDeath;
 
     [SerializeField]
@@ -32,7 +35,7 @@ public class LevelManager : MonoBehaviour {
 	private TimeController timeCor;
 
 	private PlayerController playerCor;
-    
+
 	void Start ( ) {
 
         playerCor = FindObjectOfType<PlayerController> ( );
