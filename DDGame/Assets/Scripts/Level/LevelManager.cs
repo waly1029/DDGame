@@ -17,8 +17,6 @@ public class LevelManager : MonoBehaviour {
 
     public GameObject currentCheckPoint;
 
-    private PlayerController playerCor;
-
     public GameObject deathParticle;
 
     public GameObject respawnParticle;
@@ -32,6 +30,8 @@ public class LevelManager : MonoBehaviour {
 	private LifeController lifeCor;
 
 	private TimeController timeCor;
+
+	private PlayerController playerCor;
     
 	void Start ( ) {
 
@@ -52,7 +52,7 @@ public class LevelManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ( ) {
 	
-        levelLoader.load( nextLevelTag, toLevelSelect, pointsToExit);
+        levelLoader.load( nextLevelTag, toLevelSelect, pointsToExit );
 
 	}
 
@@ -82,13 +82,13 @@ public class LevelManager : MonoBehaviour {
 
 		timeCor.RestTime( );
         
-        HealthController.FullHealth( );
-        
         playerCor.gameObject.SetActive( true );
 
         healthModel.isDead = false;
 
         camera.isFollowing = true;
+
+		HealthController.FullHealth( );
 
         FindObjectOfType<PlayerKnockEnemy>( ).knockBackCounter = 0;
         
@@ -102,9 +102,9 @@ public class LevelManager : MonoBehaviour {
 
         camera.isFollowing = false;
 
-        ScoreController.AddPionts( -pointPenaltyOnDeath );
-
 		lifeCor.TakeLife( );
+
+		ScoreController.AddPionts( -pointPenaltyOnDeath );
 
     }
 

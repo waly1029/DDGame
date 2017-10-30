@@ -20,19 +20,11 @@ public class PlayerMovement : MonoBehaviour {
 
 	private PlayerCheckGround playerCheckGround;
 
-	//private PlayerMovement playerMovement;
-	// Use this for initialization
 	void Start ( ) {
 
 		playerRigidbody = GetComponent<Rigidbody2D> ( );
 
 		playerCheckGround = FindObjectOfType<PlayerCheckGround> ( );
-
-		//playerMovement = FindObjectOfType<PlayerMovement> ( );
-
-		moveSpeed = 5f;
-
-		jumpHeight = 15f;
 
 	}
 	
@@ -40,6 +32,12 @@ public class PlayerMovement : MonoBehaviour {
 		
 		moveVelocity = moveInput * moveSpeed;
         
+	}
+
+	public void PlayerVelocity( ) {
+
+		playerRigidbody.velocity = new Vector2( moveVelocity, playerRigidbody.velocity.y );
+
 	}
 
 	public void Jump( ) {

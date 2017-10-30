@@ -23,7 +23,11 @@ public class EnemyStarController : MonoBehaviour {
 
 		lifeModel = FindObjectOfType<LifeModel> ( );
 
-		player = FindObjectOfType<PlayerController> ( ).gameObject;
+		if( FindObjectOfType<PlayerController> ( ).gameObject != null ) {
+			
+			player = FindObjectOfType<PlayerController> ( ).gameObject;
+
+		}
 
 		if ( lifeModel.lifeCounter >= 0 && player.activeSelf == true ) {
 

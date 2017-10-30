@@ -18,6 +18,12 @@ public class TimeModel : MonoBehaviour {
         
     }
 
+	void Update( ) {
+
+		TimeCount( );
+
+	}
+
     public void TimeCount( ) {
 
         if ( thePauseMenu.isPaused ) {

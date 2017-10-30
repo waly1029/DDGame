@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossHealthManager : MonoBehaviour {
+public class BossHealthManager1 : MonoBehaviour {
 
 	public GameObject bossPrefab;
 
 	public GameObject deathEffect;
 
 	[SerializeField]
-    private int bossHealth;
+    private int bossHealth1;
 
 	[SerializeField]
     private int cloneBossHealth;
@@ -28,7 +28,7 @@ public class BossHealthManager : MonoBehaviour {
 
     void Update( ) {
 		
-        if ( bossHealth <= 0 ) {
+        if ( bossHealth1 <= 0 ) {
 			
             Instantiate( deathEffect, transform.position, transform.rotation );
 
@@ -39,17 +39,6 @@ public class BossHealthManager : MonoBehaviour {
 				CloneBoss( );
 
 				SetCloneBossHealth( );
-                //GameObject clone1 = Instantiate( bossPrefab, new Vector3( transform.position.x + 0.5f, transform.position.y, transform.position.z ), transform.rotation ) as GameObject;
-
-                //GameObject clone2 = Instantiate( bossPrefab, new Vector3( transform.position.x - 0.5f, transform.position.y, transform.position.z ), transform.rotation ) as GameObject;
-
-                //clone1.transform.localScale = new Vector3( transform.localScale.y * 0.5f, transform.localScale.y * 0.5f, transform.localScale.z );
-
-                //clone1.GetComponent<BossHealthManager>( ).bossHealth = cloneBossHealth;
-
-                //clone2.transform.localScale = new Vector3( transform.localScale.y * 0.5f, transform.localScale.y * 0.5f, transform.localScale.z );
-
-                //clone2.GetComponent<BossHealthManager>( ).bossHealth = cloneBossHealth;
 
             }
 
@@ -74,15 +63,15 @@ public class BossHealthManager : MonoBehaviour {
 
 	void SetCloneBossHealth( ) {
 
-		clone1.GetComponent<BossHealthManager>( ).bossHealth = cloneBossHealth;
+		clone1.GetComponent<BossHealthManager1>( ).bossHealth1 = cloneBossHealth;
 
-		clone2.GetComponent<BossHealthManager>( ).bossHealth = cloneBossHealth;
+		clone2.GetComponent<BossHealthManager1>( ).bossHealth1 = cloneBossHealth;
 
 	}
 
     public void giveDamage( int damageToGive ) {
 		
-        bossHealth -= damageToGive;
+        bossHealth1 -= damageToGive;
 
         GetComponent<AudioSource>( ).Play( );
 

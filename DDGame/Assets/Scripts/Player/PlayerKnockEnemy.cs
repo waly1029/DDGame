@@ -37,7 +37,7 @@ public class PlayerKnockEnemy : MonoBehaviour {
 
         if ( knockBackCounter <= 0 ) {
 
-            playerRigidbody.velocity = new Vector2( playerMovement.moveVelocity, playerRigidbody.velocity.y );
+			playerMovement.PlayerVelocity( );
 
         }  else {
 
